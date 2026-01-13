@@ -1,0 +1,49 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+
+public class MainMenuTest : MonoBehaviour
+{
+    public GameObject ControlScreen;
+    public void GoToScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void QuitApp()
+    {
+        Application.Quit();
+        Debug.Log("Application has quit.");
+    }
+
+    public void LoadGarage()
+    {
+        SceneManager.LoadScene("Garage");
+    }
+
+    public void ControlsButton()
+    {
+        ControlScreen.SetActive(true);
+    }
+
+    public void KeyboardButton()
+    {
+        ApplicationManager.application.SetPlayerNumber(0);
+        ControlScreen.SetActive(false);
+    }
+
+    public void ControllerButton()
+    {
+        ApplicationManager.application.SetPlayerNumber(1);
+        ControlScreen.SetActive(false);
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene("Level1(CentralPark)");
+    }
+}
