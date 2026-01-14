@@ -1,0 +1,37 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UpgradeParts : MonoBehaviour
+{
+    //This will swap the head for what we need later.
+    public GameObject normalPart;
+    public GameObject upgradePart;
+
+    public bool upgradeEnable = false; //Set to true when we have the parts.
+
+    public Button upgradeButton; 
+
+    public void Start()
+    {
+        if(!upgradeEnable && upgradeButton != null)
+        {
+            upgradeButton.interactable = false; //This will grey out the "Upgrade" button if use does not have part.
+        }
+    }
+
+    public void SwapHead()
+    {
+       normalPart.SetActive(false); //This will disable the normal head.
+        upgradePart.SetActive(true);
+    }
+    public void EnableUpgrade() //Call this funtion in another scrip when you want to enable it.
+    {
+        upgradeEnable = true;
+        if(upgradeButton != null)
+        {
+            upgradeButton.interactable = true;
+        }
+    }
+
+    //Repeat for other parts.
+}
